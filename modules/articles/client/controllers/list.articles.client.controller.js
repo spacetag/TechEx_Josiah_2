@@ -11,5 +11,8 @@
     var vm = this;
 
     vm.articles = ArticlesService.query();
+    vm.save = function() {
+      console.log("Hey!");
+    }
   }
 })();

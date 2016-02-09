@@ -1,6 +1,8 @@
 Hello! This is my Tech Exercise app, NiceNotes.
 
 It's based off of MEAN.JS, and lets users edit and store notes!
+
+
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
 Original MEAN.JS content:

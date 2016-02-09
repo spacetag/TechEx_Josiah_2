@@ -9,6 +9,9 @@
 
   function ArticlesListController(ArticlesService) {
     var vm = this;
+    // http://www.w3schools.com/jsref/met_document_getelementbyid.asp
+    vm.saveButton = document.getElementById("save-button");
+
     vm.currentNote = { content: "Please select a note" }
 
     vm.articles = ArticlesService.query();
@@ -34,8 +37,12 @@
 
     vm.save = function() {
       console.log("Updating...");
+      // http://stackoverflow.com/questions/17327668/best-way-to-disable-button-in-twitters-bootstrap
+      vm.saveButton.disabled = true
       vm.currentNote.$update(function() {
         console.log("success")
+        // http://stackoverflow.com/questions/17327668/best-way-to-disable-button-in-twitters-bootstrap
+        vm.saveButton.disabled = false
       }, function() {
         console.log("error")
       });

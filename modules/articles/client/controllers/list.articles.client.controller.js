@@ -9,7 +9,7 @@
 
   function ArticlesListController(ArticlesService) {
     var vm = this;
-    vm.currentNote = {}
+    vm.currentNote = { content: "Please select a note" }
 
     vm.articles = ArticlesService.query();
 

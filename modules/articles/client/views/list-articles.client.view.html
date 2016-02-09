@@ -36,7 +36,13 @@
         <!-- <a ng-repeat="a in [1,2,3,4]" class="list-group-item">Hey</a> -->
         <!-- http://www.w3schools.com/tags/tag_input.asp -->
         <!-- http://stackoverflow.com/questions/19089933/how-to-position-two-elements-side-by-side-using-css -->
-        <input ng-model="article.title" style="display: inline-block; width: 75%">
+        <!-- http://stackoverflow.com/questions/26114974/ng-change-not-working-on-a-text-input -->
+        <!-- http://stackoverflow.com/questions/11868393/angularjs-inputtext-ngchange-fires-while-the-value-is-changing -->
+        <!-- https://docs.angularjs.org/api/ng/directive/ngModelOptions -->
+        <input ng-model="article.title" style="display: inline-block; width: 75%"
+               ng-change="vm.autoupdate()"
+               ng-model-options="{ debounce: 200 }">
+
         <button ng-click="vm.delete(article)" style="display: inline-block;">x</button>
         <!-- <p class="list-group-item-text" ng-bind="article.content"></p> -->
       </a>

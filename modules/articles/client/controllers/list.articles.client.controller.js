@@ -56,5 +56,10 @@
     vm.notedata = [
       {label: 'Hey yo', children: ['This', 'Testing', '45']}
     ]
+
+    vm.autoupdate = function() {
+      console.log("Auto updating!")
+      vm.save();
+    }
   }
 })();

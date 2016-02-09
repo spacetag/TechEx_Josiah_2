@@ -47,8 +47,10 @@
   </div>
   <div class="col-md-9">
     <!-- http://www.w3schools.com/tags/tag_textarea.asp -->
+    <!-- http://stackoverflow.com/questions/26114974/ng-change-not-working-on-a-text-input -->
     <textarea class="form-control" style="width: 100%; height: 450px"
-              ng-model="vm.currentNote.content"></textarea>
+              ng-model="vm.currentNote.content"
+              ng-change="vm.autoupdate()"></textarea>
   </div>
   <!-- <div class="col-md-12">
     <br />

@@ -9,7 +9,7 @@
 
   function menuConfig(Menus) {
     Menus.addMenuItem('topbar', {
-      title: 'Articles',
+      title: 'NestNotes',
       state: 'articles',
       type: 'dropdown',
       roles: ['*']

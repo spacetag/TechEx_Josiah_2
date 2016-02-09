@@ -1,11 +1,30 @@
 <section>
-  <div class="page-header">
-    <h1>Articles</h1>
+  <!-- http://getbootstrap.com/2.3.2/scaffolding.html -->
+  <div class="row">
+    <div class="col-md-10">
+      <div class="page-header">
+        <h1>NestNotes</h1>
+      </div>
+    </div>
+    <div class="col-md-2">
+    <!-- Bootstrap CSS helped -->
+      <div style="margin:40px">
+        <button ng-click="vm.save()" class="btn btn-default">Save</button>
+      </div>
+    </div>
   </div>
   <div class="col-md-3">
   <!-- <abn-tree tree-data="vm.notedata"></abn-tree> -->
     <!-- <div class="list-group"> -->
-      <a ng-repeat="article in vm.articles" ng-click="vm.load(article)" class="list-group-item">
+      <a class="list-group-item" ng-click="vm.create()" style="height: 40px">
+        <!-- http://stackoverflow.com/questions/15147843/javascript-onclick-make-the-mouse-cursor-a-hand-when-mousing-over -->
+        <i style="float:right; cursor: pointer">Create New Entry</i>
+      </a>
+      <!-- http://stackoverflow.com/questions/7792652/what-is-the-best-way-to-conditionally-apply-a-class -->
+      <!-- http://www.w3schools.com/css/css_text.asp -->
+      <a ng-repeat="article in vm.articles" ng-click="vm.load(article)"
+         class="list-group-item" style="color: #000"
+         ng-class="{active: article._id == vm.currentNote._id}">
       <!-- ui-sref="articles.view({ articleId: article._id })" class="list-group-item" -->
 <!--         <small class="list-group-item-text">
           Posted on
@@ -15,7 +34,10 @@
           <span ng-if="!article.user">Deleted User</span>
         </small> -->
         <!-- <a ng-repeat="a in [1,2,3,4]" class="list-group-item">Hey</a> -->
-        {{article.title}}
+        <!-- http://www.w3schools.com/tags/tag_input.asp -->
+        <!-- http://stackoverflow.com/questions/19089933/how-to-position-two-elements-side-by-side-using-css -->
+        <input ng-model="article.title" style="display: inline-block; width: 75%">
+        <button ng-click="vm.delete(article)" style="display: inline-block;">x</button>
         <!-- <p class="list-group-item-text" ng-bind="article.content"></p> -->
       </a>
     <!-- </div> -->
@@ -28,8 +50,8 @@
     <textarea class="form-control" style="width: 100%; height: 450px"
               ng-model="vm.currentNote.content"></textarea>
   </div>
-  <div class="col-md-12">
+  <!-- <div class="col-md-12">
     <br />
-    <button ng-click="vm.save()" class="btn btn-default" style="width: 100%">Save</button>
-  </div>
+    
+  </div> -->
 </section>

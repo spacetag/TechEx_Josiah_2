@@ -3,26 +3,30 @@
     <h1>Articles</h1>
   </div>
   <div class="col-md-3">
-    <div class="list-group">
-      <a ng-repeat="article in vm.articles" ui-sref="articles.view({ articleId: article._id })" class="list-group-item">
-        <small class="list-group-item-text">
+  <!-- <abn-tree tree-data="vm.notedata"></abn-tree> -->
+    <!-- <div class="list-group"> -->
+      <a ng-repeat="article in vm.articles" ng-click="vm.load(article)" class="list-group-item">
+      <!-- ui-sref="articles.view({ articleId: article._id })" class="list-group-item" -->
+<!--         <small class="list-group-item-text">
           Posted on
           <span ng-bind="article.created | date:'mediumDate'"></span>
           by
           <span ng-if="article.user" ng-bind="article.user.displayName"></span>
           <span ng-if="!article.user">Deleted User</span>
-        </small>
-        <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
-        <p class="list-group-item-text" ng-bind="article.content"></p>
+        </small> -->
+        <!-- <a ng-repeat="a in [1,2,3,4]" class="list-group-item">Hey</a> -->
+        {{article.title}}
+        <!-- <p class="list-group-item-text" ng-bind="article.content"></p> -->
       </a>
-    </div>
+    <!-- </div> -->
     <div class="alert alert-warning text-center" ng-if="vm.articles.$resolved && !vm.articles.length">
       No articles yet, why don't you <a ui-sref="articles.create">create one</a>?
     </div>
   </div>
   <div class="col-md-9">
     <!-- http://www.w3schools.com/tags/tag_textarea.asp -->
-    <textarea class="form-control" style="width: 100%; height: 450px"></textarea>
+    <textarea class="form-control" style="width: 100%; height: 450px"
+              ng-model="vm.currentNote.content"></textarea>
   </div>
   <div class="col-md-12">
     <br />
